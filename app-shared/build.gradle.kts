@@ -33,6 +33,7 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation(kotlin("test-junit5"))
             }
         }
         val androidMain by getting {
