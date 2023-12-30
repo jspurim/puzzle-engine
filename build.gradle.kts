@@ -17,3 +17,9 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     id("org.jetbrains.compose") version libs.versions.compose.version.get() apply false
 }
+
+subprojects {
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
+}
