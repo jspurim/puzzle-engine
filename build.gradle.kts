@@ -10,9 +10,10 @@ allprojects {
 }
 
 plugins {
-    kotlin("multiplatform") apply false
-    kotlin("android") apply false
-    id("com.android.application") apply false
-    id("com.android.library") apply false
-    id("org.jetbrains.compose") apply false
+    kotlin("jvm") version libs.versions.kotlin.version.get() apply false
+    kotlin("multiplatform") version libs.versions.kotlin.version.get() apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    id("org.jetbrains.compose") version libs.versions.compose.version.get() apply false
 }

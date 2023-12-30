@@ -9,12 +9,23 @@ group = "com.github.jspurim.csp"
 version = "1.0-SNAPSHOT"
 
 kotlin {
-    androidTarget()
+    androidTarget {
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
+    }
     jvm("desktop") {
-        jvmToolchain(17)
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
+        jvmToolchain(11)
     }
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.6")
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
@@ -30,7 +41,7 @@ android {
         minSdk = 24
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }

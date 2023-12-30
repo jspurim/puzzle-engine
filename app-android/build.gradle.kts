@@ -11,29 +11,31 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation(project(":app-shared"))
-    implementation("androidx.activity:activity-compose:1.5.0")
-    testImplementation(kotlin("test"))
-}
+
 
 android {
     namespace = "com.github.jspurim.android"
     compileSdk = 34
     defaultConfig {
-        applicationId = "com.github.jspurim.android"
+        applicationId = "com.github.jspurim.puzzleengine.app.android"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0-SNAPSHOT"
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
         }
     }
+}
+
+dependencies {
+    implementation(project(":app-shared"))
+    implementation(libs.androidx.activity.compose)
+    testImplementation(kotlin("test"))
 }

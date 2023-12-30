@@ -10,17 +10,24 @@ group = "com.github.jspurim.puzzleengine"
 version = "1.0-SNAPSHOT"
 
 kotlin {
-    androidTarget()
+    androidTarget {
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
+    }
     jvm("desktop") {
-        jvmToolchain(17)
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
     }
     sourceSets {
         val commonMain by getting {
             dependencies {
                 api(compose.runtime)
+                api(compose.ui)
                 api(compose.foundation)
-                api(compose.material)
-                implementation(project(":csp-model"))
+                api(compose.materialIconsExtended)
+                api(compose.material3)
             }
         }
         val commonTest by getting {
@@ -56,10 +63,7 @@ android {
         minSdk = 24
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
-}
-dependencies {
-    implementation(project(":csp-model"))
 }
