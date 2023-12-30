@@ -20,6 +20,9 @@ kotlin {
             kotlinOptions.jvmTarget = "17"
         }
     }
+    js(IR){
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -28,11 +31,12 @@ kotlin {
                 api(compose.foundation)
                 api(compose.materialIconsExtended)
                 api(compose.material3)
+                project(":csp-model")
             }
         }
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test-junit5"))
+                implementation(kotlin("test"))
             }
         }
         val androidMain by getting {
@@ -41,14 +45,15 @@ kotlin {
                 api("androidx.core:core-ktx:1.9.0")
             }
         }
-        val androidUnitTest by getting {
-        }
+        val androidUnitTest by getting
         val desktopMain by getting {
             dependencies {
                 api(compose.preview)
             }
         }
         val desktopTest by getting
+        val jsMain by getting
+        val jsTest by getting
     }
 }
 

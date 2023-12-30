@@ -1,8 +1,8 @@
 package com.github.jspurim.csp.model.core
 
 import kotlinx.collections.immutable.ImmutableList
-import kotlinx.collections.immutable.immutableListOf
 import kotlinx.collections.immutable.persistentListOf
+import kotlin.reflect.KClass
 
 /**
  * A set of possible values a variable can take.
@@ -31,10 +31,10 @@ interface FiniteDomain<T> : Domain<T> {
  * Notice that depending on the value of [T] some of these may actually be finite domains.
  *
  */
-data class TypeDomain<T> constructor(val clazz : Class<T>): Domain<T> {
+data class TypeDomain<T : Any>(val clazz : KClass<T>): Domain<T> {
     override fun isValidValue(value: T) = true
 }
-inline fun <reified T> typeDomain() : TypeDomain<T> = TypeDomain(T::class.java)
+inline fun <reified T : Any> typeDomain() : TypeDomain<T> = TypeDomain(T::class)
 
 
 /**

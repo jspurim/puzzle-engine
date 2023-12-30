@@ -8,7 +8,7 @@ import kotlin.test.Test
 class TypeDomainTests{
 
     @Test
-    fun `TypeDomain(Int) accepts any integer as value`() {
+    fun  typedDomain_int_acceptsAnyIntegerAsValue() {
         val domain = typeDomain<Int>()
         listOf(0,1,42, Int.MAX_VALUE, -1, Int.MIN_VALUE).forEach {
             assertTrue { domain.isValidValue(it) }

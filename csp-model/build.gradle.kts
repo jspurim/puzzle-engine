@@ -20,6 +20,9 @@ kotlin {
         }
         jvmToolchain(17)
     }
+    js(IR) {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -28,7 +31,7 @@ kotlin {
         }
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test-junit5"))
+                implementation(kotlin("test"))
             }
         }
     }
