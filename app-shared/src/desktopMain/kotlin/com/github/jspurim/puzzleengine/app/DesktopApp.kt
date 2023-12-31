@@ -1,4 +1,4 @@
-package com.github.jspurim.puzzleengine.app.desktop
+package com.github.jspurim.puzzleengine.app
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.runtime.Composable
