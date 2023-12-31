@@ -14,7 +14,7 @@ kotlin {
             kotlinOptions.jvmTarget = "17"
         }
     }
-    jvm("desktop") {
+    jvm {
         compilations.all {
             kotlinOptions.jvmTarget = "17"
         }
@@ -31,7 +31,19 @@ kotlin {
         }
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test"))
+                implementation(libs.kotest.assertions.core)
+                implementation(libs.kotest.framework.engine)
+                implementation(libs.kotest.framework.datatest)
+            }
+        }
+        val jvmTest by getting {
+            dependencies {
+                implementation(libs.kotest.runner.junit5)
+            }
+        }
+        val androidUnitTest by getting {
+            dependencies {
+                implementation(libs.kotest.runner.junit5)
             }
         }
     }

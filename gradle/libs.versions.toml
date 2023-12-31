@@ -1,14 +1,21 @@
 [versions]
-kotlin-version = "1.9.10"
-agp-version = "8.2.0"
-compose-version = "1.5.10"
+kotlin= "1.9.10"
+agp = "8.2.0"
+compose = "1.5.10"
+kotest = "5.7.2"
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp.version" }
-android-library = { id = "com.android.library", version.ref = "agp.version" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin.version" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotest-multiplatform = { id = "io.kotest.multiplatform", version.ref = "kotest" }
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.6.1" }
 androidx-core = { module = "androidx.core:core-ktx", version = "1.10.1" }
 androidx-activity-compose = "androidx.activity:activity-compose:1.7.2"
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
+kotest-framework-datatest = { module = "io.kotest:kotest-framework-datatest", version.ref = "kotest" }
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
