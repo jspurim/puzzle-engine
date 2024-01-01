@@ -24,12 +24,12 @@ class DomainTests : FreeSpec({
     "SUDOKU_DIGIT" - {
         for(digit in 1..9){
             "Should accept $digit as valid value"{
-                Domains.SUDOKU_DIGIT.isValidValue(digit) shouldBe true
+                Domains.SUDOKU_DIGITS.isValidValue(digit) shouldBe true
             }
         }
         listOf(0,10,-1).forEach {
             "Should reject $it as valid value"{
-                Domains.SUDOKU_DIGIT.isValidValue(it) shouldBe false
+                Domains.SUDOKU_DIGITS.isValidValue(it) shouldBe false
             }
         }
     }

@@ -45,5 +45,5 @@ data class ExplicitValuesDomain<T>(val validValues : ImmutableList<T>) : FiniteD
 }
 
 object Domains {
-    val SUDOKU_DIGIT = ExplicitValuesDomain(persistentListOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
+    val SUDOKU_DIGITS = ExplicitValuesDomain(persistentListOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
 }
