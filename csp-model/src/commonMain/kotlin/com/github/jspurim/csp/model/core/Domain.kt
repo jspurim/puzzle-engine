@@ -7,7 +7,7 @@ import kotlin.reflect.KClass
 /**
  * A set of possible values a variable can take.
  */
-interface Domain<T> : StructurallyEquatable {
+interface Domain<in T> : StructurallyEquatable {
     /**
      * Indicates whether the provided value is valid for this domain.
      */
@@ -43,4 +43,5 @@ data class ExplicitValuesDomain<T>(val validValues: ImmutableList<T>) : FiniteDo
 
 object Domains {
     val SUDOKU_DIGITS = ExplicitValuesDomain(persistentListOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
+    val BINARY_DIGITS = ExplicitValuesDomain(persistentListOf(0, 1))
 }

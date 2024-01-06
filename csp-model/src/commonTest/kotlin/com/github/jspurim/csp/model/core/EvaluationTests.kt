@@ -50,6 +50,18 @@ class EvaluationTests : FreeSpec({
         }
     }
 
+    "Evaluation.hasValue should" - {
+        val evaluation = Evaluation()
+        evaluation[intVariable_1] = 42
+
+        "return true for a set variable" - {
+            evaluation.hasValue(intVariable_1) shouldBe true
+        }
+        "return false for an unset variable" - {
+            evaluation.hasValue(intVariable_2) shouldBe false
+        }
+    }
+
     "Evaluation should allow overriding the value of a variable" - {
         "through the same variable instance" {
             val evaluation = Evaluation()

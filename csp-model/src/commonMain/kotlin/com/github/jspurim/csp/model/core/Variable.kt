@@ -9,7 +9,7 @@ package com.github.jspurim.csp.model.core
  * This interface represents the variable itself, and not the value associated with that variable.
  * Such values are represented via [Evaluation]s which are maps from variables to concrete values.
  */
-interface Variable<T> : StructurallyEquatable {
+interface Variable<in T> : StructurallyEquatable {
     val domain: Domain<T>
 }
 

@@ -26,4 +26,9 @@ class Evaluation {
     operator fun <T> get(variable: Variable<T>): T? {
         return data[variable] as T?
     }
+
+    /**
+     * Indicates whether the specified variable has a value set on this evaluation.
+     */
+    fun hasValue(variable: Variable<*>) = data.containsKey(variable)
 }

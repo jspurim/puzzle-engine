@@ -14,3 +14,4 @@ interface Constraint {
     fun isSatisfied(evaluation: Evaluation): Boolean
 }
 
+fun Evaluation.satisfies(constraint: Constraint) = constraint.isSatisfied(this)
