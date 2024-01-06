@@ -1,7 +1,6 @@
 package com.github.jspurim.csp.model.core.constraints
 
 import com.github.jspurim.csp.model.core.Evaluation
-import com.github.jspurim.csp.model.core.Variable
 import com.github.jspurim.csp.model.core.constrains.NotEqualConstraint
 import com.github.jspurim.csp.model.core.simpleIntVariable
 import io.kotest.core.spec.style.FreeSpec
