@@ -50,7 +50,7 @@ class EvaluationTests : FreeSpec({
         }
     }
 
-    "Evaluation should allow overriding the value of a variable" -{
+    "Evaluation should allow overriding the value of a variable" - {
         "through the same variable instance" {
             val evaluation = Evaluation()
             evaluation[intVariable_1] = 41
@@ -65,9 +65,9 @@ class EvaluationTests : FreeSpec({
         }
     }
 
-    "Evaluation should throw when attempting to set values outside the variable domain, for example" -{
+    "Evaluation should throw when attempting to set values outside the variable domain, for example" - {
         "for as sudoku digit variable" - {
-            listOf(0,10,-1).forEach {
+            listOf(0, 10, -1).forEach {
                 "should throw when setting the value to $it" {
                     shouldThrow<IllegalArgumentException> {
                         val evaluation = Evaluation()

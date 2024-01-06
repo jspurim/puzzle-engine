@@ -8,7 +8,7 @@ class DomainTests : FreeSpec({
     "TypeDomain" - {
         "<Int>" - {
             val domain = typeDomain<Int>();
-            listOf(0,1,-1,42,Int.MAX_VALUE, Int.MIN_VALUE).forEach {
+            listOf(0, 1, -1, 42, Int.MAX_VALUE, Int.MIN_VALUE).forEach {
                 "Should accept $it as valid value" {
                     domain.isValidValue(it) shouldBe true
                 }
@@ -22,13 +22,13 @@ class DomainTests : FreeSpec({
         }
     }
     "SUDOKU_DIGIT" - {
-        for(digit in 1..9){
-            "Should accept $digit as valid value"{
+        for (digit in 1..9) {
+            "Should accept $digit as valid value" {
                 Domains.SUDOKU_DIGITS.isValidValue(digit) shouldBe true
             }
         }
-        listOf(0,10,-1).forEach {
-            "Should reject $it as valid value"{
+        listOf(0, 10, -1).forEach {
+            "Should reject $it as valid value" {
                 Domains.SUDOKU_DIGITS.isValidValue(it) shouldBe false
             }
         }

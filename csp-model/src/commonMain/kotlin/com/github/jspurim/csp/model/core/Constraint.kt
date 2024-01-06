@@ -11,6 +11,6 @@ interface Constraint {
      * Return true otherwise. Notice that an empty evaluation would always satisfy any constrain,
      * satisfying a constraint only means not violating it.
      */
-    fun isSatisfied(evaluation: Evaluation) : Boolean
+    fun isSatisfied(evaluation: Evaluation): Boolean
 }
 
