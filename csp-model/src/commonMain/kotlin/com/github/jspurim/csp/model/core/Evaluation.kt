@@ -13,6 +13,9 @@ class Evaluation {
      * Set the value of the provided variable.
      */
     fun <T> setValue(variable : Variable<T>, value : T) {
+        if(!variable.domain.isValidValue(value)){
+            throw IllegalArgumentException("The value $value is not in the domain of variable $variable, which is ${variable.domain}.")
+        }
         data[variable] = value
     }
 

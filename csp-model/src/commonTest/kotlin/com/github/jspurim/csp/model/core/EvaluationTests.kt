@@ -1,5 +1,6 @@
 package com.github.jspurim.csp.model.core
 
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
@@ -62,6 +63,19 @@ class EvaluationTests : FreeSpec({
             evaluation.setValue(intVariable_1, 41)
             evaluation.setValue(duplicateIntVariable_1, 42)
             evaluation.getValue(intVariable_1) shouldBe 42
+        }
+    }
+
+    "Evaluation should throw when attempting to set values outside the variable domain, for example" -{
+        "for as sudoku digit variable" - {
+            listOf(0,10,-1).forEach {
+                "should throw when setting the value to $it" {
+                    val evaluation = Evaluation()
+                    shouldThrow<IllegalArgumentException> {
+                        evaluation.setValue(sudokuVariable_1, it)
+                    }
+                }
+            }
         }
     }
 
