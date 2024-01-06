@@ -3,7 +3,7 @@ package com.github.jspurim.csp.model.core
 /**
  * A mapping from [Variable]s to concrete values.
  *
- * An evaluation may allows setting values for multiple variables of different types.
+ * An evaluation allows setting values for multiple variables of different types.
  */
 class Evaluation {
 
