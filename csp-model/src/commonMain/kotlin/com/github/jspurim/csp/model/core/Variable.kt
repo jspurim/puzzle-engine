@@ -13,4 +13,9 @@ interface Variable<T> : StructurallyEquatable{
     val domain : Domain<T>
 }
 
+/**
+ * A [Variable] identified by a single id and its domain.
+ */
 data class SimpleVariable<T> constructor(val variableId : Int, override val domain: Domain<T>) : Variable<T>
+
+fun simpleIntVariable(id: Int) = SimpleVariable(id, typeDomain<Int>())
