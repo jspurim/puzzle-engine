@@ -6,11 +6,8 @@ import kotlin.reflect.KClass
 
 /**
  * A set of possible values a variable can take.
- *
- * Domains get associated with [Variable]s and therefore should be data classes when possible, as they will be part of
- * map keys.
  */
-interface Domain<T> {
+interface Domain<T> : StructurallyEquatable {
     /**
      * Indicates whether the provided value is valid for this domain.
      */

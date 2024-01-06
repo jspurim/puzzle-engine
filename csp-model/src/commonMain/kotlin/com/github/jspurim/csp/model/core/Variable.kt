@@ -3,19 +3,14 @@ package com.github.jspurim.csp.model.core
 /**
  * A [Variable] that can take any value withing a given [Domain].
  *
+ * Implementations may define additional fields to identify a variable, but the variable [Domain] is always part of the
+ * definition its identity, that is two variables that are identical except for their domains are different variables.
+ *
  * This interface represents the variable itself, and not the value associated with that variable.
- * Such values are represented via "evaluations" which are maps from variables to concrete values.
- * Since variables are used as keys on collections, implementations should be data classes when possible.
+ * Such values are represented via [Evaluation]s which are maps from variables to concrete values.
  */
-interface Variable<T>{
+interface Variable<T> : StructurallyEquatable{
     val domain : Domain<T>
-    val id : VariableId
 }
 
-interface VariableId
-
-class SimpleVariable<T> constructor(variableId : Int, override val domain: Domain<T>) : Variable<T> {
-
-    private data class SimpleVariableKey<T>(val variableId: Int, val domain: Domain<T>) : VariableId
-    override val id : VariableId = SimpleVariableKey(variableId, domain)
-}
+data class SimpleVariable<T> constructor(val variableId : Int, override val domain: Domain<T>) : Variable<T>
