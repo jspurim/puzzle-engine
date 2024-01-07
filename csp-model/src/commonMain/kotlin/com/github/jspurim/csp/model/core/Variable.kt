@@ -28,6 +28,6 @@ data class SimpleVariable<T>(val variableId: Int, override val domain: Domain<T>
 /**
  * A [FiniteVariable] identified by a single id and its domain.
  */
-data class SimpleFiniteVariable<T>(val variableId: Int, override val domain: FiniteDomain<T>) : Variable<T>
+data class SimpleFiniteVariable<T>(val variableId: Int, override val domain: FiniteDomain<T>) : FiniteVariable<T>
 
 fun simpleIntVariable(id: Int) = SimpleVariable(id, typeDomain<Int>())

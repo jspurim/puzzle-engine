@@ -5,7 +5,7 @@ import kotlinx.collections.immutable.ImmutableSet
 /**
  * A constraint satisfaction problem definition.
  *
- * A [SimpleProblem] is characterized as set of [Variable]s (each with an associated [Domain]) plus a set of [Constraint]s on
+ * A [GeneralProblem] is characterized as set of [Variable]s (each with an associated [Domain]) plus a set of [Constraint]s on
  * the values of those variables.
  *
  * An assignment of values to variables is called an [Evaluation]. An evaluation that sets values for variables of a
@@ -37,9 +37,26 @@ interface Problem {
 }
 
 /**
- * A [Problem] defined directly by its sets of [Variable]s and [Constraint]s.
+ * A general [Problem] defined directly by its sets of [Variable]s and [Constraint]s.
+ *
+ * This is the most general type of problem possible, making no assumptions at all about any of the variables or
+ * constrains.
  */
-class SimpleProblem(
+class GeneralProblem(
     override val variables: ImmutableSet<Variable<*>>,
+    override val constraints: ImmutableSet<Constraint>
+) : Problem
+
+
+/**
+ * A simple [Problem] that satisfies the following conditions:
+ *
+ * 1. All the variables are [FiniteVariable].
+ * 2. All the variables are of the same type.
+ *
+ * Each variable is allowed to have a different [FiniteDomain].
+ */
+class SimpleFiniteProblem<T>(
+    override val variables: ImmutableSet<FiniteVariable<T>>,
     override val constraints: ImmutableSet<Constraint>
 ) : Problem

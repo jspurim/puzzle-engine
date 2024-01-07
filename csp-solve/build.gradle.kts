@@ -26,6 +26,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(project(":csp-model"))
                 implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.6")
             }
         }
