@@ -12,4 +12,5 @@ plugins {
 
 rootProject.name = "puzzle-engine"
 
-include(":csp-model", ":app-shared", ":app-desktop", ":app-android", ":app-web")
+include(":app-shared", ":app-desktop", ":app-android", ":app-web")
+include(":csp-model", ":csp-solve")
