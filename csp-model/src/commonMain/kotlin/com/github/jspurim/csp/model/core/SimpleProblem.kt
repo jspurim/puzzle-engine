@@ -31,8 +31,7 @@ interface Problem {
      * Whether the given [Evaluation] is consistent with the [Constraint]s of this problem.
      *
      * Notices that consistency only means that no constraint was violated, and does not imply that the evaluation is a
-     * solutions. For example, the empty evaluation that sets no variables is be trivially consistent with every
-     * problem.
+     * solutions. For example, the empty evaluation that sets no variables is trivially consistent with every problem.
      */
     fun isConsistent(evaluation: Evaluation) = constraints.all(evaluation::satisfies)
 }

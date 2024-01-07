@@ -8,7 +8,7 @@ import io.kotest.matchers.shouldBe
 
 class NotEqualConstraintTests : FreeSpec({
 
-    "A not equal to B constriant:" - {
+    "A not equal to B constraint:" - {
         val varA = simpleIntVariable(1)
         val varB = simpleIntVariable(2)
         val varC = simpleIntVariable(3)
