@@ -2,7 +2,7 @@ package com.github.jspurim.csp.model.core
 
 /**
  * A condition on a set of [Variable]s that needs to be satisfied for the [Evaluation] to be a solution to the
- * [Problem].
+ * [SimpleProblem].
  */
 interface Constraint {
 

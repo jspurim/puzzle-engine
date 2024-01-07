@@ -4,7 +4,6 @@ import com.github.jspurim.csp.model.core.constrains.NotEqualConstraint
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
 import kotlinx.collections.immutable.persistentHashSetOf
-import kotlinx.collections.immutable.persistentListOf
 
 class ProblemTests : FreeSpec({
 
@@ -12,7 +11,7 @@ class ProblemTests : FreeSpec({
         val variableA = SimpleVariable(1, Domains.BINARY_DIGITS)
         val variableB = SimpleVariable(2, Domains.BINARY_DIGITS)
         val constraint = NotEqualConstraint(variableA, variableB)
-        val problem = Problem(persistentHashSetOf(variableA, variableB), persistentHashSetOf(constraint))
+        val problem = SimpleProblem(persistentHashSetOf(variableA, variableB), persistentHashSetOf(constraint))
 
         "Empty evaluation" {
             val emptyEvaluation = Evaluation()
@@ -52,6 +51,6 @@ class ProblemTests : FreeSpec({
     "Problem with variables of multiple types can be defined" {
         val variableA = SimpleVariable(1, Domains.BINARY_DIGITS)
         val variableB = SimpleVariable(2, typeDomain<Char>())
-        val problem = Problem(persistentHashSetOf(variableA, variableB), persistentHashSetOf())
+        val problem = SimpleProblem(persistentHashSetOf(variableA, variableB), persistentHashSetOf())
     }
 })
