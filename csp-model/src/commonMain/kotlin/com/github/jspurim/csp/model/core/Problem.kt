@@ -12,7 +12,7 @@ import kotlinx.collections.immutable.ImmutableSet
  * problem without violating any constrain is a solution of the problem.
  */
 interface Problem {
-    val variables: ImmutableSet<Variable<*>>
+    val variables: ImmutableSet<Variable<*,*>>
     val constraints: ImmutableSet<Constraint>
 
     /**
@@ -43,7 +43,7 @@ interface Problem {
  * constrains.
  */
 class GeneralProblem(
-    override val variables: ImmutableSet<Variable<*>>,
+    override val variables: ImmutableSet<Variable<*,*>>,
     override val constraints: ImmutableSet<Constraint>
 ) : Problem
 

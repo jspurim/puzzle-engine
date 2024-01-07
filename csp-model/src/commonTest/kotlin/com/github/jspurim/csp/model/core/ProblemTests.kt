@@ -20,13 +20,14 @@ class ProblemTests : FreeSpec({
         }
 
         "Defined as a simple finite problem" - {
-            val problem = SimpleFiniteProblem(persistentHashSetOf(variableA, variableB), persistentHashSetOf(constraint))
+            val problem =
+                SimpleFiniteProblem(persistentHashSetOf(variableA, variableB), persistentHashSetOf(constraint))
             simpleFiniteProblemTests(problem, variableA, variableB)
         }
 
     }
 
-    "GeneralProblem" -{
+    "GeneralProblem" - {
         "Allows variables of multiple types" {
             val variableA = SimpleVariable(1, Domains.BINARY_DIGITS)
             val variableB = SimpleVariable(2, typeDomain<Char>())
@@ -38,8 +39,8 @@ class ProblemTests : FreeSpec({
 
 private suspend fun FreeSpecContainerScope.simpleFiniteProblemTests(
     problem: Problem,
-    variableA: Variable<Int>,
-    variableB: Variable<Int>
+    variableA: Variable<FiniteDomain<Int>, Int>,
+    variableB: Variable<FiniteDomain<Int>, Int>
 ) {
     "Empty evaluation" {
         val emptyEvaluation = Evaluation()
