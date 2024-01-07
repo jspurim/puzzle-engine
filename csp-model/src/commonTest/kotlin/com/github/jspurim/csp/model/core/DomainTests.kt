@@ -1,6 +1,7 @@
 package com.github.jspurim.csp.model.core
 
 import io.kotest.core.spec.style.FreeSpec
+import io.kotest.matchers.sequences.shouldContainExactly
 import io.kotest.matchers.shouldBe
 
 class DomainTests : FreeSpec({
@@ -31,6 +32,9 @@ class DomainTests : FreeSpec({
             "Should reject $it as valid value" {
                 Domains.SUDOKU_DIGITS.isValidValue(it) shouldBe false
             }
+        }
+        "Should lists all valid values" {
+            Domains.SUDOKU_DIGITS.values shouldContainExactly sequenceOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
         }
     }
 

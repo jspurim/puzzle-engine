@@ -7,7 +7,7 @@ import kotlin.reflect.KClass
 /**
  * A set of possible values a variable can take.
  */
-interface Domain<in T> : StructurallyEquatable {
+interface Domain<T> : StructurallyEquatable {
     /**
      * Indicates whether the provided value is valid for this domain.
      */
@@ -28,7 +28,7 @@ interface FiniteDomain<T> : Domain<T> {
  * Notice that depending on the value of [T] some of these may actually be finite domains.
  *
  */
-data class TypeDomain<T : Any>(val clazz: KClass<T>) : Domain<T> {
+data class TypeDomain<T : Any>(private val clazz: KClass<T>) : Domain<T> {
     override fun isValidValue(value: T) = true
 }
 
@@ -37,7 +37,7 @@ inline fun <reified T : Any> typeDomain(): TypeDomain<T> = TypeDomain(T::class)
 /**
  * A [FiniteDomain] that is defined by am explicit set of valid values.
  */
-data class ExplicitValuesDomain<T>(val validValues: ImmutableList<T>) : FiniteDomain<T> {
+data class ExplicitValuesDomain<T>(private val validValues: ImmutableList<T>) : FiniteDomain<T> {
     override val values = validValues.asSequence()
 }
 
