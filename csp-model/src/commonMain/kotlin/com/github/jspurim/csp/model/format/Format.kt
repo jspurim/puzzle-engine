@@ -4,7 +4,7 @@ import com.github.jspurim.csp.model.arrangement.RectangularGrid
 import com.github.jspurim.csp.model.core.Domain
 import com.github.jspurim.csp.model.core.Evaluation
 
-fun RectangularGrid<*, *>.format(evaluation: Evaluation, unsetValueString: String = " "): String {
+fun <D : Domain<T>, T> RectangularGrid<D, T>.format(evaluation: Evaluation, unsetValueString: String = " "): String {
     val valueStrings = Array(rows) { r ->
         Array(cols) { c ->
             val variable = this[r, c]

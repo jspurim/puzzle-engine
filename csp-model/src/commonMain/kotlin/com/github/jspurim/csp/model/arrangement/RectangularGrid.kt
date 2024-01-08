@@ -2,6 +2,9 @@ package com.github.jspurim.csp.model.arrangement
 
 import com.github.jspurim.csp.model.core.Domain
 import com.github.jspurim.csp.model.core.Problem
+import kotlinx.collections.immutable.immutableHashSetOf
+import kotlinx.collections.immutable.persistentHashSetOf
+import kotlinx.collections.immutable.persistentListOf
 
 /**
  * A rectangular grid of [Variable]s.
@@ -13,6 +16,14 @@ class RectangularGrid<D: Domain<T>, T>(val rows: Int, val cols: Int, domain: D, 
 
     private val variables =
         Array(rows) { r -> Array(cols) { c -> Variable(gridId, r, c, domain) } }
+
+    /**
+     * A list of all variables in the grid.
+     *
+     * The variables will be orders first by row, then by column, in ascending order.
+     * This translates to natural reading order on a matrix, with standard indexing (where top left is [0,0]).
+     */
+    val allVariables = persistentListOf(*variables.flatten().toTypedArray());
 
     /**
      * Returns the [Variable] in the specified position.
